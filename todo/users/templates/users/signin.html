@@ -1,0 +1,23 @@
+{% extends "todo_list/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+		<div class="p-3 w-50 mx-auto mt-4 border rounded" style="background-color: #e6e6ff;">
+			<form method="post">
+				{% csrf_token %}
+				<fieldset>
+					<legend>Sign In</legend>
+					{{ form|crispy }}
+				</fieldset>
+				<div>
+					<button class="btn btn-sm" type="submit" style="background-color: #c6e2eb">
+						Sign In
+					</button>
+				</div>
+			</form>
+			<div>
+				<small>
+					No account <a href="{% url 'register' %}">Create account</a>
+				</small>
+			</div>
+		</div>
+{% endblock content %}

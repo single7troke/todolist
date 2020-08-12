@@ -1,0 +1,23 @@
+{% extends "todo_list/base.html" %}
+{% block content %}
+	<br>
+	<br>
+	<div class="p-4">
+		<div class="conteiner w-50 p-4 border mx-auto rounded" style="background-color: #e6e6ff;">
+			<legend>
+				My ToDo List!
+			</legend>
+			{% for word in text%}
+				<ul class="list-group">
+					<div class="row">
+							<li class="list-group-item disabled w-75 rounded mr-2 text-dark" style="background-color: #ecf4f8;">{{ word }}</li>
+							<div class="">
+								<button type="button" class="btn btn-sm mr-1" style="background-color: #c6ebd9">Done</button>
+								<button type="button" class="btn mr-1 btn-sm" style="background-color: #ebc6c6">Delete</button>
+							</div>
+					</div>
+				</ul>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock content %}

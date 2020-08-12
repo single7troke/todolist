@@ -1,0 +1,45 @@
+
+{% extends "todo_list/base.html" %}
+{% block content %}
+
+
+	<div class="p-4 mt-5">
+		<div class="conteiner w-75 p-4 border mx-auto rounded" style="background-color: #e6e6ff">
+			<legend>
+				My todo list
+			</legend>
+
+			<form action="{% url 'add' %}" method="post" class="form-inline" >{% csrf_token %}
+				<input type="text" name="content" maxlength="255" class="form-control w-75" placeholder="type here...">
+				<button type="submit" class="btn btn-sm border ml-3" style="background-color: #00bfff">
+					Add
+				</button>
+			</form>
+			<small class="text-muted ml-1">(Max text length 255 symbols)</small>
+
+			<br><br>
+			{% for todo in todo_list %}
+				<ul class="list-group">
+					<div class="row">
+						<li class="list-group-item disabled w-75 rounded mr-2 my-1 text-dark" style="background-color: #ecf4f8; word-break: break-all;">
+							{% if todo.complete %}
+								<small class="text-muted"><s>{{ todo.content }}</s></small>
+							{% else %}
+								{{ todo.content }}
+							{% endif %}
+							<br><small class="">Created: {{ todo.date }}</small>
+						</li>
+						<div class="mt-1">
+							<form  action="done/{{ todo.id }}/" method="post" class="form-inline my-1" >{% csrf_token %}
+								<button type="submit" class="btn border  btn-sm mx-1" style="background-color: #c6ebd9">Done</button>
+							</form>
+							<form action="delete/{{ todo.id }}/" method="post" class="form-inline my-1" >{% csrf_token %}
+								<button type="submit" class="btn border btn-sm mx-1" style="background-color: #ebc6c6">Delete</button>
+							</form>
+						</div>
+					</div>
+				</ul>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock content %}
