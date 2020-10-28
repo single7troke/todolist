@@ -1,57 +1,96 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html lang="en" >
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	{% if title %}
-        <title>My List - {{ title }}</title>
-    {% else %}
-        <title>My List</title>
-    {% endif %}
-</head>
-<body style="background-color: #c6deeb;">
-	<br>
-	<div class="w-0 mx-auto">
-		<nav class="navbar" style="background-color: #e6e6ff;">
-			<div class="nav">
-				<a class="navbar-brand nav-link text-dark" href="/">Home</a>
-			</div>
-			<div class="nav float-right">
-				{% if user.is_authenticated %}
-					<form  action="{% url 'signout' %}" class="form-inline my-1" >
-						<button type="submit" class="navbar-btn border  btn-sm mx-1" style="background-color: #69a9cb">Sign Out</button>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+			  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+			  crossorigin="anonymous">
+		{% if title %}
+	        <title>My List - {{ title }}</title>
+	    {% else %}
+	        <title>My List</title>
+	    {% endif %}
+	</head>
+	<body style="background-color: #d4dcff; ">
+		<div class="w-0 mx-auto">
+			<nav class="navbar"
+				 style="background-color: #ccd5ff;
+				 box-shadow: 0 2px 2px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);">
+				<div class="nav">
+					<form  action="{% url 'Home' %}" class="form-inline my-1" >
+							<button type="submit"
+									class="btn-sm mx-1"
+									style="background-color: #00bfff;
+									border-color: #c6deeb;
+									border-width: 1px;
+									box-shadow: 0 2px 2px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);">
+								HOME
+							</button>
 					</form>
-				{% else %}
-					<form  action="{% url 'signin' %}" class="form-inline my-1" >
-						<button type="submit" class="navbar-btn border  btn-sm mx-1" style="background-color: #00bfff">Sign In</button>
-					</form>
-					<form  action="{% url 'register' %}" class="form-inline my-1" >
-						<button type="submit" class="navbar-btn border  btn-sm mx-1" style="background-color: #00bfff">Registration</button>
-					</form>
-				{% endif %}
-			</div>
-		</nav>
-	</div>
-	<div class="">
-		{% if messages %}
-		  {% for message in messages %}
-			<div class="alert alert-{{ message.tags }}">
-			  {{ message }}
-			</div>
-		  {% endfor %}
-		{% endif %}
-			{% block content %}{% endblock content %}
-	</div>
+				</div>
+				<div class="nav float-right">
+					{% if user.is_authenticated %}
+						<form  action="{% url 'signout' %}" class="form-inline my-1" >
+							<button type="submit"
+									class="btn-sm mx-1 "
+									style="background-color: #00bfff;
+									border-color: #c6deeb;
+									border-width: 1px;
+									box-shadow: 0 2px 2px rgba(0,0,0,0.25), 0 3px 3px rgba(0,0,0,0.22);">
+								Sign Out
+							</button>
+						</form>
+					{% else %}
+						<form  action="{% url 'signin' %}" class="form-inline my-1" >
+							<button type="submit"
+									class="btn-sm mx-1"
+									style="background-color: #00bfff;
+									border-color: #c6deeb;
+									border-width: 1px;
+									box-shadow: 0 2px 2px rgba(0,0,0,0.25), 0 3px 3px rgba(0,0,0,0.22);">
+								Sign in
+							</button>
+						</form>
+						<form  action="{% url 'register' %}" class="form-inline my-1" >
+							<button type="submit"
+									class="btn-sm mx-1"
+									style="background-color : #00bfff; border-color: #c6deeb;
+									border-width: 1px;
+									box-shadow: 0 2px 2px rgba(0,0,0,0.25), 0 3px 3px rgba(0,0,0,0.22);">
+								Registration
+							</button>
+						</form>
+					{% endif %}
+				</div>
+			</nav>
+		</div>
+		<div class="">
+			{% if messages %}
+			  {% for message in messages %}
+				<div class="alert alert-{{ message.tags }}">
+				  {{ message }}
+				</div>
+			  {% endfor %}
+			{% endif %}
+				{% block content %}{% endblock content %}
+		</div>
 
 
+		<!-- Optional JavaScript -->
+	    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+				integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+				crossorigin="anonymous"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+				integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+				crossorigin="anonymous"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+				integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+				crossorigin="anonymous"></script>
 
-	<!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	</body>
 
-</body>
 </html>

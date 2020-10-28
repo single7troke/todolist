@@ -1,16 +1,21 @@
 {% extends "todo_list/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-		<div class="p-3 w-50 mx-auto mt-4 border rounded" style="background-color: #e6e6ff;">
+		<div class="p-3 w-50 mx-auto mt-4 border rounded"
+			 style="background-color: #e6e6ff;
+			 box-shadow: 0 5px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">
 			<form method="post">
 				{% csrf_token %}
 				<fieldset>
-					<legend>Sign In</legend>
+					<legend>Sign in</legend>
 					{{ form|crispy }}
 				</fieldset>
 				<div>
-					<button class="btn btn-sm" type="submit" style="background-color: #c6e2eb">
-						Sign In
+					<button class="btn btn-sm shadow-sm"
+							type="submit"
+							style="background-color: #c6e2eb; border-style:outset;
+							border-color: #c6deeb; border-width: 1px;">
+						Sign in
 					</button>
 				</div>
 			</form>
