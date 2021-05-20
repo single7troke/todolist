@@ -8,7 +8,7 @@ def home(request):
 	if request.user.is_authenticated:
 		return redirect('Mylist')
 	else:
-		text = ['Create', 'Your', 'Own', 'ToDo list!']
+		text = ['Create', 'Your', 'Own', 'List!']
 		return render(request, 'todo_list/home.html', {'text': text})
 
 

@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+
+/* BASE */
+
+body {
+
+    background: #f2f3f4;
+    min-width: 400px;
+
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Big Shoulders Display', cursive;
+    padding: 20px 100px 0;
+    color: #555;
+}
+
+.message {
+    font-family: 'Big Shoulders Display', cursive;
+    color: red;
+    position: absolute;
+    top: 110px;
+    left: 40%;
+}
+
+.main{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.container {
+    border-color: #ddd;
+    border-width: 0px;
+    border-style: solid;
+    background:;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1000px;
+    min-width: 400px;
+}
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 100%;
+
+}
+
+
+.header_inner {
+    display: flex;
+    justify-content: space-between;
+    background: #00e6ac;
+    height: 100px;
+    z-index: 100;
+    align-items: center;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.25), 0 3px 3px rgba(0,0,0,0.22);
+
+}
+
+
+.logo {
+    padding-left: 50px;
+}
+
+
+.logo a {
+
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #555;
+}
+
+
+.nav_links {
+    margin-right: 50px;
+}
+
+
+.nav_links a {
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 0 10px;
+    color: #555;
+    transition: color .15s linear;
+}
+
+.nav_links a:hover {
+    color: #eee;
+
+}
+
+
+.navbutton {
+
+    float: left;
+    margin: 1px;
+    margin-top: 20px;
+    background-color: #00bfff;
+	border-color: #c6deeb;
+    border-width: 1px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.25), 0 3px 3px rgba(0,0,0,0.22);
+
+    font-family: inherit;
+    font-size: 30px;
+}
+
+
+
+
+
+/* ----- HOME ----- */
+
+.home {
+    padding-bottom: 10px;
+    margin-top: 130px;
+}
+
+
+
+
+
+/* ----- MyList ----- */
+
+.mylist_conteiner {
+    margin-top: 130px;
+    margin-bottom: 50px;
+
+}
+
+.new__task {
+    padding: 5px;
+    background-color: #00e6ac;
+    margin: 0 100px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.25), 0 3px 3px rgba(0,0,0,0.22);
+}
+
+.new__task form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new__task button{
+    margin: 10px;
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: 18px;
+}
+
+.new__task input {
+    height: 30px;
+    width: 90%;
+}
+
+.new__task small {
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: 14px;
+    color: #555;
+}
+
+
+.task {
+    padding: 5px;
+    background: #00e6ac;
+    margin: 0 100px;
+
+    box-shadow: 0 2px 2px rgba(0,0,0,0.25), 0 3px 3px rgba(0,0,0,0.22);
+}
+
+.text {
+    font-family: 'Caveat', cursive;
+    font-size: 25px;
+    padding: 5px;
+    background: #f2f3f4;
+    color: #444;
+}
+
+.text p {
+    margin: 0 auto;
+}
+.complete {
+    font-size: 20px;
+    text-decoration: line-through;
+}
+
+.created_date {
+    padding-top: 5px;
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: 14px;
+    color: #555;
+}
+
+.mylist_buttons {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mylist_buttons button {
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: 14px;
+}
+
+
+/* Sign In, Registration, Sign Out*/
+.user_form {
+    margin-top: 130px;
+    padding: 5px;
+    background: #00e6ac;
+    font-size: 20px;
+    font-family: 'Big Shoulders Display', cursive;
+    color: #444;
+
+    box-shadow: 0 2px 2px rgba(0,0,0,0.25), 0 3px 3px rgba(0,0,0,0.22);
+}
+
+
+.user_form button {
+    margin: 5px;
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: 20px;
+    color: #444;
+}
+
+fieldset{
+    padding: 10px;
+}

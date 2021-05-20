@@ -2,65 +2,43 @@
 {% extends "todo_list/base.html" %}
 {% block content %}
 {% load static %}
+	<div class="mylist_conteiner">
+	<div class="container">
+		<h2>My todo list</h2>
+		<div class="new__task">
 
-
-	<div class="p-4 mt-5">
-		<div class="conteiner w-75 p-4 border mx-auto rounded"
-			 style="background-color: #e6e6ff;
-			 box-shadow: 0 5px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">
-			<legend>
-				My todo list
-			</legend>
-
-			<form action="{% url 'add' %}" method="post" class="form-inline" >{% csrf_token %}
-				<input type="text"
-					   name="content"
-					   maxlength="255"
-					   class="form-control w-75 shadow-sm"
-					   placeholder="type here...">
-				<button type="submit"
-						class="btn btn-sm ml-3 shadow-sm"
-						style="background-color: #a4eae4; border-style:outset;
-						border-color: #c6deeb; border-width: 1px;">
-					&nbsp;&nbsp;Add&nbsp;&nbsp;&nbsp;
-				</button>
+			<form action="{% url 'add' %}" method="post" class="" >{% csrf_token %}
+				<input type="text" name="content" maxlength="255" placeholder="type new task">
+				<button type="submit">&nbsp;Add</button>
 			</form>
-			<small class="text-muted ml-1">(Max text length 255 symbols)</small>
+			<small class="">(Max text length 255 symbols)</small>
+		</div>
+		<br>
 
-			<br><br>
 			{% for todo in todo_list %}
-				<ul class="list-group ml-3">
-					<div class="row">
-						<li class="list-group-item disabled w-75 rounded mr-2 my-1 text-dark shadow-sm"
-							style="background-color: #ecf4f8; word-break: break-all;">
-							{% if todo.complete %}
-								<small class="text-muted"><s>{{ todo.content }}</s></small>
-							{% else %}
-								{{ todo.content }}
-							{% endif %}
-							<br><small class="blockquote-footer">Created: {{ todo.date }}</small>
-						</li>
-						<div class="mt-1">
-							<form  action="done/{{ todo.id }}/" method="post" class="form-inline my-1" >{% csrf_token %}
-								<button type="submit"
-										class="btn btn-sm mx-1 shadow-sm"
-										style="background-color: #7adeff;
-										border-style:outset; border-color: #c6deeb;
-										border-width: 1px;">&nbsp;&nbsp;
-									Done&nbsp;&nbsp;</button>
+				<div class="task">
+					<div class="text">
+						{% if todo.complete %}
+						<p class="complete">{{ todo.content }}</p>
+						{% else %}
+						<p>{{ todo.content }}</p>
+						{% endif %}
+						<div class="created_date">Created: {{ todo.date }}</div>
+					</div>
+
+					<div class="mylist_buttons">
+							<form  action="done/{{ todo.id }}/" method="post">{% csrf_token %}
+								<button type="submit">Done</button>
 							</form>
-							<form action="delete/{{ todo.id }}/" method="post" class="form-inline my-1" >{% csrf_token %}
-								<button type="submit"
-										class="btn btn-sm mx-1 shadow-sm"
-										style="background-color: #f3cec9;
-										border-style:outset; border-color: #c6deeb;
-										border-width: 1px;">&nbsp;
-									Delete&nbsp;</button>
+							<form action="delete/{{ todo.id }}/" method="post">{% csrf_token %}
+								<button type="submit">Delete</button>
 							</form>
 						</div>
-					</div>
-				</ul>
+				</div>
+				<br>
 			{% endfor %}
-		</div>
+	</div>
+	<div>
+
 	</div>
 {% endblock content %}
